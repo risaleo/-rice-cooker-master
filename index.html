@@ -25,7 +25,7 @@ footer{padding:18px;text-align:center;color:var(--muted);font-size:12px}
 <header id="homeHeader"><button class="iconbtn" onclick="showPage('settings')">☰</button><div class="brand">🍚 炊飯器販買マスター <small>Risa Edition</small></div><button class="iconbtn" onclick="showPage('history')">◎</button></header>
 <main>
 <section id="home" class="page active"><div class="content">
-<div class="hero"><div><h1><span id="welcome">リサさん</span>の学習状況</h1><p>2026年8月7日時点のメーカー公式情報を基準に、メーカー差だけでなく各社の上位〜中位シリーズ差まで学びます。</p><div class="status"><strong id="levelText">Lv.1</strong> 新人スタッフ<div class="bar"><span id="expBar"></span></div><span>累計 <b id="expText">0 EXP</b></span></div><div class="tip">💡 まず「今のご飯のどこが不満ですか？」→ 食感・保温・お手入れの順で絞ると提案しやすい。</div></div><div class="rice-visual">🍚</div></div>
+<div class="hero"><div><h1><span id="welcome">リサさん</span>の学習状況</h1><p>2026年8月8日時点のメーカー公式情報を基準に、メーカー差だけでなく各社の上位〜中位シリーズ差まで学びます。</p><div class="status"><strong id="levelText">Lv.1</strong> 新人スタッフ<div class="bar"><span id="expBar"></span></div><span>累計 <b id="expText">0 EXP</b></span></div><div class="tip">💡 まず「今のご飯のどこが不満ですか？」→ 食感・保温・お手入れの順で絞ると提案しやすい。</div></div><div class="rice-visual">🍚</div></div>
 <button class="main-action" onclick="startSales()"><span class="emoji">🛒</span><span><b>販買モード</b><small>お客様の好みからメーカー候補を提案</small></span><span>›</span></button>
 <div class="grid">
 <button class="cardbtn" onclick="showPage('makers')"><span class="emoji">🏭</span><b>メーカー攻略</b><small>象印・タイガー・日立・東芝・三菱を比較</small></button>
@@ -33,19 +33,21 @@ footer{padding:18px;text-align:center;color:var(--muted);font-size:12px}
 <button class="cardbtn" onclick="showPage('levels')"><span class="emoji">📘</span><b>練習問題</b><small>初級・中級・上級で学習</small></button>
 <button class="cardbtn" onclick="showPage('history')"><span class="emoji">📊</span><b>学習記録</b><small>正解率と回答数を確認</small></button>
 <button class="cardbtn" onclick="showPage('comparison')"><span class="emoji">⚖️</span><b>一目比較</b><small>接客中にすぐ確認できる一覧</small></button><button class="cardbtn" onclick="showPage('series')"><span class="emoji">🏆</span><b>シリーズ比較</b><small>各メーカーの上位〜中位モデルの違い</small></button>
+<button class="cardbtn" onclick="showPage('pots')"><span class="emoji">🍲</span><b>お釜比較</b><small>本土鍋・本炭釜・鉄釜など内釜の違い</small></button>
 <button class="cardbtn" onclick="showPage('settings')"><span class="emoji">⚙️</span><b>設定</b><small>利用者名と学習記録の管理</small></button>
 </div></div></section>
 
-<section id="makers" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>メーカー攻略</h2><span></span></div><div class="content"><div class="sectionlead">2026年8月7日時点の各社公式情報を基準に整理しています。機能はシリーズ・型番で異なるため、「メーカー全体の特徴」と「特定シリーズの搭載機能」を分けて確認してください。</div><div id="makerGrid" class="maker-grid"></div></div></section>
-<section id="comparison" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>一目比較</h2><span></span></div><div class="content"><div class="maker-grid" id="compareGrid"></div><div class="note">※2026年8月7日時点の各社公式情報を基準にしています。「このメーカーなら必ずこの食感」と断定せず、候補を絞った後に型番ごとの炊き分け・保温時間・お手入れ・内釜仕様を確認します。</div></div></section>
-<section id="series" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>シリーズ比較</h2><span></span></div><div class="content"><div class="sectionlead">2026年8月7日時点の各社公式ラインアップを基準に、上位機種から選ぶときの「何が上がるのか」を販売向けに整理しています。</div><div id="seriesTabs" class="series-tabs"></div><div id="seriesView"></div><div class="note">※発売時期・販路・容量でラインアップは変わります。店頭説明では最終的に型番ごとの仕様表を確認してください。</div></div></section>
+<section id="makers" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>メーカー攻略</h2><span></span></div><div class="content"><div class="sectionlead">2026年8月8日時点の各社公式情報を基準に整理しています。機能はシリーズ・型番で異なるため、「メーカー全体の特徴」と「特定シリーズの搭載機能」を分けて確認してください。</div><div id="makerGrid" class="maker-grid"></div></div></section>
+<section id="comparison" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>一目比較</h2><span></span></div><div class="content"><div class="maker-grid" id="compareGrid"></div><div class="note">※2026年8月8日時点の各社公式情報を基準にしています。「このメーカーなら必ずこの食感」と断定せず、候補を絞った後に型番ごとの炊き分け・保温時間・お手入れ・内釜仕様を確認します。</div></div></section>
+<section id="series" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>シリーズ比較</h2><span></span></div><div class="content"><div class="sectionlead">2026年8月8日時点の各社公式ラインアップを基準に、上位機種から選ぶときの「何が上がるのか」を販売向けに整理しています。</div><div id="seriesTabs" class="series-tabs"></div><div id="seriesView"></div><div class="note">※発売時期・販路・容量でラインアップは変わります。店頭説明では最終的に型番ごとの仕様表を確認してください。</div></div></section>
+<section id="pots" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>お釜比較</h2><span></span></div><div class="content"><div class="sectionlead">内釜は「材質だけ」で優劣を決めるのではなく、発熱・蓄熱・熱伝導・形状・本体の加熱制御とセットで見るのがポイントです。2026年8月8日時点の各社公式情報を基準に、販売で説明しやすい違いに整理しました。</div><div id="potTabs" class="series-tabs"></div><div id="potView"></div><div class="note">※同じメーカーでも型番により釜厚・コーティング・保証年数が異なります。「○○メーカーは全部この釜」とは案内せず、必ず型番ごとに確認してください。</div></div></section>
 <section id="diagnosis" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>かんたん診断</h2><span></span></div><div class="content"><div class="sectionlead">一番重視する項目を選んでください。</div><div class="diag-options" id="diagOptions"></div><div id="diagResult" class="diag-result hidden"></div></div></section>
 <section id="levels" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>練習問題</h2><span></span></div><div class="content"><div class="levels"><button class="level" onclick="startQuiz('初級')"><span>🌱</span><b>初級</b><small>メーカーの基本</small></button><button class="level" onclick="startQuiz('中級')"><span>🌾</span><b>中級</b><small>接客と比較</small></button><button class="level" onclick="startQuiz('上級')"><span>🏆</span><b>上級</b><small>複合条件の提案</small></button></div></div></section>
 <section id="quiz" class="page"><div class="subhead"><button class="back" onclick="showPage('levels')">‹ 終了</button><h2>練習問題</h2><span></span></div><div class="content quiz"><div class="qmeta"><span class="pill" id="qLevel"></span><span id="qCount"></span></div><div class="question" id="question"></div><div class="choices" id="choices"></div><div id="explain" class="explain hidden"></div><button id="nextBtn" class="next hidden" onclick="nextQuestion()">次の問題へ</button></div></section>
 <section id="sales" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 終了</button><h2>販買モード</h2><span></span></div><div class="content"><div class="sales-layout"><div class="customer"><div class="avatar">👩</div><div class="facts"><div>家族：3人</div><div>炊飯：毎日</div><div>容量：5.5合希望</div><div>予算：相談</div></div><div class="speech" id="salesSpeech"></div></div><div class="salesq"><h3 id="salesQuestion"></h3><div class="choices" id="salesChoices"></div><div id="salesExplain" class="explain hidden"></div><button id="salesNext" class="next hidden" onclick="nextSales()">次のお客様へ</button></div></div></div></section>
 <section id="history" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>学習記録</h2><span></span></div><div class="content"><div class="history-grid"><div class="stat"><strong id="hAnswered">0</strong>回答数</div><div class="stat"><strong id="hCorrect">0</strong>正解数</div><div class="stat"><strong id="hRate">0%</strong>正解率</div></div><div class="note">学習記録は、この端末のブラウザ内に保存されます。</div></div></section>
 <section id="settings" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>設定</h2><span></span></div><div class="content"><div class="namebox"><input id="nameInput" placeholder="利用者名"><button onclick="saveName()">保存</button></div><div class="note">エアコン販買マスターとは完全に別のアプリです。エアコン側のデータやファイルには影響しません。</div><button class="next" style="background:#8d3f18;margin-top:20px" onclick="resetData()">学習記録をリセット</button></div></section>
-</main><footer>炊飯器販買マスター Risa Edition｜正式版 1.1.0</footer>
+</main><footer>炊飯器販買マスター Risa Edition｜正式版 1.3.0</footer>
 </div></div>
 <script>
 const makers=[
@@ -81,6 +83,27 @@ const seriesData={
 {tier:'上位',model:'NJ-VW10J 本炭釜',type:'非圧力IH・本炭釜',diff:'本炭釜／連続沸騰／30銘柄芳潤炊き／少量名人',fit:'本炭釜の炊き味を重視し、最上位ほどの多機能は不要'},
 {tier:'中上位',model:'NJ-VP10J',type:'非圧力IH・炭炊釜',diff:'ダブル備長炭コート 熾火／5層厚釜3.5mm／20銘柄芳潤炊き／超音波吸水',fit:'本炭釜より扱いやすい金属釜で粒立ちを狙う'},
 {tier:'中位',model:'NJ-VS10J',type:'非圧力IH・炭炊釜',diff:'ダブル備長炭コート 熾火／2層厚釜2.0mm／10銘柄芳潤炊き／超音波吸水',fit:'三菱らしい非圧力を手頃に'}]};
+
+const potData={
+'象印':{summary:'炎舞炊き上位は「鉄―くろがね仕込み―豪炎かまど釜」。鉄・アルミ・ステンレスを組み合わせ、大火力を受け止めて効率よく熱を伝える設計。',rows:[
+{model:'NX-AB',pot:'豪炎かまど釜',material:'鉄＋アルミ＋ステンレス',spec:'釜厚2.2mm／ふち厚10mm／フッ素加工5年保証',point:'同じ豪炎かまど釜でも、最上位はふちを大きく厚くして放熱を抑える。'},
+{model:'NW-NC',pot:'豪炎かまど釜',material:'鉄＋アルミ＋ステンレス',spec:'釜厚2.2mm／ふち厚3mm／フッ素加工3年保証',point:'基本思想は同じ。最上位との差は釜だけでなくIH構成や炊き分け機能も含めて比較。'},
+{model:'NW-UU07',pot:'豪炎かまど釜',material:'鉄＋アルミ＋ステンレス',spec:'釜厚2.2mm／ふち厚8mm／フッ素加工3年保証',point:'4合の小容量でも豪炎かまど釜。小容量＝薄い釜とは限らない。'}],talk:'「象印は“鉄を仕込んだ金属釜”で大火力を活かすタイプ。上位ほど、釜のふちや加熱制御まで含めて熱を逃がしにくくしています」'},
+'タイガー':{summary:'最上位は本物の陶器製「本土鍋」。その下は金属製の内なべに土鍋素材のコーティングを施し、土鍋の蓄熱・遠赤・細かな泡立ちを再現する方向。',rows:[
+{model:'JRT-A100',pot:'本土鍋',material:'陶器製の本物の土鍋',spec:'土鍋ご泡火炊き／約300℃の大火力',point:'金属釜ではなく本物の土鍋そのもの。最上位の大きな差別化ポイント。'},
+{model:'JRI-S100/S180',pot:'遠赤9層土鍋かまどコート釜',material:'金属多層＋土鍋素材コート',spec:'外側に銅素材＋土鍋素材、内側に遠赤土鍋コーティング',point:'本土鍋ではないが、蓄熱・遠赤・泡立ちを土鍋に近づける設計。'},
+{model:'JRI-T100/T180・JPV-S系',pot:'遠赤5層土鍋蓄熱コート釜',material:'金属多層＋土鍋蓄熱コート',spec:'土鍋素材や蓄熱素材をコーティング',point:'価格を抑えながら、金属釜で土鍋らしい高火力・遠赤効果を狙う。'}],talk:'「タイガーは“本土鍋か、土鍋コートの金属釜か”をまず分けると説明しやすいです」'},
+'日立':{summary:'上位は「大火力 沸騰鉄釜」。発熱性の高い鉄と、熱を伝えやすいアルミを組み合わせた多層金属釜で、底面の凸形状も使って大火力を米に伝える。',rows:[
+{model:'RZ-W100JM / RZ-Z100JM / RZ-V100KM',pot:'大火力 沸騰鉄釜',material:'鉄＋アルミの多層金属',spec:'凸底形状／軽量設計／カーボンフッ素加工6年保証（対象機種）',point:'釜側は発熱・伝熱を担当し、蓄熱は本体の全周断熱構造でも補う考え方。'},
+{model:'RZ-Y100HJ',pot:'黒厚鉄釜',material:'鉄＋アルミ',spec:'約790gの軽量内釜／カーボンフッ素加工3年保証',point:'上位の沸騰鉄釜よりシンプル。圧力IHの基本性能と扱いやすさを重視。'}],talk:'「日立は“重い釜ほど良い”ではなく、本体側に断熱性を持たせて内釜を軽くしているのが特徴です」'},
+'東芝':{summary:'上位は丸底形状の厚い鍛造釜。「備長炭かまど丸釜」は7mm厚・丸底60°・釜底WAVEで強い熱対流を狙う。中位では「銅かまど丸釜」に変わる。',rows:[
+{model:'RC-10ZWA / RC-10SGA',pot:'備長炭かまど丸釜',material:'鍛造アルミ系＋ステンレス発熱体・備長炭入り遠赤外線コート',spec:'釜底厚7mm／丸底60°／釜底WAVE14本／内釜5年保証',point:'厚み・丸底・WAVE・備長炭コートを組み合わせ、蓄熱と対流を重視。'},
+{model:'RC-10PGA',pot:'銅かまど丸釜',material:'金属釜＋銅コート',spec:'釜底厚5mm／丸底／釜底WAVE7本',point:'上位の備長炭かまど丸釜から、厚み・WAVE数・外面コートが変わる比較ポイント。'}],talk:'「東芝は“釜底の厚さ・丸底・WAVEの本数”を見ると、上位との差が説明しやすいです」'},
+'三菱':{summary:'三菱は「本炭釜」と「炭炊釜」を明確に分ける。本炭釜は炭素材料を焼き固めた釜、炭炊釜は金属釜に備長炭コートを施したもの。',rows:[
+{model:'NJ-BW10J / NJ-VW10J',pot:'本炭釜',material:'炭素材料を固めて焼き上げた炭の釜',spec:'釜そのものが発熱する本炭釜／非圧力・連続沸騰',point:'金属に炭を塗った釜ではない。陶器・土鍋と同程度に衝撃に注意が必要。'},
+{model:'NJ-VP10J',pot:'備長炭 炭炊釜',material:'金属釜＋ダブル備長炭コート',spec:'5層厚釜3.5mm／ダブル備長炭コート 熾火',point:'本炭釜より扱いやすい金属釜。厚みもVSより大きい。'},
+{model:'NJ-VS10J',pot:'備長炭 炭炊釜',material:'金属釜＋ダブル備長炭コート',spec:'2層厚釜2.0mm／ダブル備長炭コート 熾火',point:'同じ炭炊釜でも層数・厚みが違う。'}],talk:'「三菱は“本炭釜＝炭そのもの”“炭炊釜＝金属＋炭コート”と分けると一発で伝わります」'}
+};
 
 const diagnosis=[
 {label:'食感を細かく調整したい',title:'象印を中心に比較',text:'「わが家炊き」対応機種を確認。好みのかたさ・粘りを調整したいお客様に向きます。対応する炊き分け数は機種で異なります。'},
@@ -135,6 +158,8 @@ function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.
 function refresh(){const level=Math.floor(state.exp/100)+1;document.getElementById('welcome').textContent=(state.name||'リサ')+'さん';document.getElementById('levelText').textContent='Lv.'+level;document.getElementById('expText').textContent=state.exp+' EXP';document.getElementById('expBar').style.width=(state.exp%100)+'%';document.getElementById('hAnswered').textContent=state.answered;document.getElementById('hCorrect').textContent=state.correct;document.getElementById('hRate').textContent=state.answered?Math.round(state.correct/state.answered*100)+'%':'0%';document.getElementById('nameInput').value=state.name||'';}
 function renderSeries(name='象印'){seriesTabs.innerHTML=Object.keys(seriesData).map(n=>`<button class="${n===name?'active':''}" onclick="renderSeries('${n}')">${n}</button>`).join('');const rows=seriesData[name];seriesView.innerHTML=`<h3 style="color:var(--brown);font-size:24px">${name} ラインアップ比較</h3><div class="scrollx"><table class="series-table"><thead><tr><th>位置づけ</th><th>代表モデル</th><th>方式</th><th>上位になると何が違う？</th><th>向いているお客様</th></tr></thead><tbody>${rows.map(r=>`<tr><td class="tier">${r.tier}</td><td><b>${r.model}</b></td><td>${r.type}</td><td>${r.diff}</td><td>${r.fit}</td></tr>`).join('')}</tbody></table></div>`;}
 
+function renderPots(name='象印'){potTabs.innerHTML=Object.keys(potData).map(n=>`<button class="${n===name?'active':''}" onclick="renderPots('${n}')">${n}</button>`).join('');const d=potData[name];potView.innerHTML=`<article class="maker"><h3>${name}のお釜</h3><p style="line-height:1.75">${d.summary}</p><div class="talk">${d.talk}</div></article><div class="scrollx" style="margin-top:14px"><table class="series-table"><thead><tr><th>代表モデル</th><th>お釜</th><th>材質・構造</th><th>主な仕様</th><th>販売で見るポイント</th></tr></thead><tbody>${d.rows.map(r=>`<tr><td><b>${r.model}</b></td><td class="tier">${r.pot}</td><td>${r.material}</td><td>${r.spec}</td><td>${r.point}</td></tr>`).join('')}</tbody></table></div>`;}
+
 function renderMakers(){makerGrid.innerHTML=makers.map(m=>`<article class="maker"><h3>${m.name}</h3><span class="tag">${m.tag}</span><ul>${m.points.map(x=>`<li>${x}</li>`).join('')}</ul><div class="talk">${m.talk}</div><p style="font-size:12px;color:var(--muted);margin-bottom:0">確認元：${m.source}</p></article>`).join('');compareGrid.innerHTML=makers.map(m=>`<article class="maker"><h3>${m.name}</h3><span class="tag">${m.tag}</span><p>${m.points[0]}</p></article>`).join('');diagOptions.innerHTML=diagnosis.map((d,i)=>`<button onclick="runDiag(${i},this)">${d.label}</button>`).join('');}
 function runDiag(i,btn){document.querySelectorAll('#diagOptions button').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');diagResult.classList.remove('hidden');diagResult.innerHTML=`<h3>${diagnosis[i].title}</h3>${diagnosis[i].text}`;}
 function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr;}
@@ -148,5 +173,5 @@ function answerSales(i,btn){if(locked)return;locked=true;const x=salesCases[sale
 function nextSales(){salesIndex++;if(salesIndex>=salesCases.length){showPage('history')}else renderSales();}
 function saveName(){state.name=nameInput.value.trim()||'リサ';save();showPage('home');}
 function resetData(){if(confirm('学習記録をリセットしますか？')){state.exp=0;state.answered=0;state.correct=0;save();}}
-renderMakers();renderSeries();refresh();
+renderMakers();renderSeries();renderPots();refresh();
 </script></body></html>
