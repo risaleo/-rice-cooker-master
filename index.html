@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#8d3f18">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>炊飯器販買マスター Risa Edition</title>
+<style>
+:root{--brown:#743314;--orange:#d76b21;--cream:#fff8ed;--rice:#fffdf7;--text:#35271f;--muted:#74675e;--line:#ead9c8;--green:#31845d;--red:#c84d45}
+*{box-sizing:border-box}body{margin:0;background:#f5eee7;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}button,input{font:inherit}.hidden{display:none!important}.app{max-width:1100px;margin:auto;padding:14px}.shell{min-height:calc(100vh - 28px);background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 18px 50px rgba(90,50,20,.12)}
+header{min-height:76px;padding:12px 20px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;border-bottom:1px solid #f0e5da;background:#fff}.iconbtn{border:0;background:transparent;font-size:25px;color:var(--brown);font-weight:900}.brand{text-align:center;font-weight:900;color:var(--brown);font-size:24px}.brand small{display:inline-block;margin-left:6px;padding:5px 9px;border-radius:999px;background:#fff0dc;color:var(--orange);font-size:11px}.page{display:none}.page.active{display:block}.content{padding:22px}
+.hero{padding:24px;border-radius:22px;background:linear-gradient(125deg,#fffaf1,#ffe8c9);border:1px solid #f2cfaa;display:grid;grid-template-columns:1.2fr .8fr;gap:20px}.hero h1{margin:0;color:var(--brown);font-size:30px}.hero p{line-height:1.7}.rice-visual{display:grid;place-items:center;font-size:110px;filter:drop-shadow(0 8px 10px rgba(90,50,20,.15))}.status{margin-top:16px;padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line)}.status strong{font-size:34px;color:var(--orange)}.bar{height:11px;background:#eadfd4;border-radius:99px;overflow:hidden;margin:10px 0}.bar span{display:block;height:100%;background:linear-gradient(90deg,#f09b43,#c85d16);width:0}.tip{margin-top:12px;padding:13px;border-radius:12px;background:#fff9e8;font-weight:800;line-height:1.6}
+.main-action{width:100%;margin-top:16px;padding:22px;border:0;border-radius:18px;background:linear-gradient(110deg,#d76b21,#8c3c16);color:#fff;text-align:left;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center}.main-action .emoji{font-size:44px}.main-action b{font-size:25px;display:block}.main-action small{display:block;margin-top:5px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.cardbtn{min-height:150px;padding:17px;border:1px solid var(--line);border-radius:17px;background:#fff;text-align:left;color:var(--text)}.cardbtn .emoji{font-size:34px}.cardbtn b{display:block;margin-top:10px;font-size:18px;color:var(--brown)}.cardbtn small{display:block;margin-top:7px;color:var(--muted);line-height:1.5}
+.subhead{display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:18px 20px;border-bottom:1px solid #f0e5da}.subhead h2{text-align:center;margin:0;color:var(--brown)}.back{border:0;background:transparent;color:var(--brown);font-weight:900;font-size:18px}.sectionlead{padding:16px;border-radius:15px;background:var(--cream);line-height:1.7;margin-bottom:16px}.maker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.maker{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}.maker h3{margin:0 0 6px;color:var(--brown);font-size:23px}.maker .tag{display:inline-block;padding:5px 9px;border-radius:999px;background:#fff0dc;color:#a64f17;font-weight:900;font-size:12px}.maker ul{padding-left:20px;line-height:1.7}.talk{padding:12px;border-left:5px solid var(--orange);background:#fff8ee;border-radius:10px;line-height:1.6;font-weight:800}
+.diag-options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.diag-options button{padding:17px;border:1px solid var(--line);border-radius:14px;background:#fff;text-align:left;font-weight:800;color:var(--text)}.diag-options button.selected{background:#fff0dc;border-color:#d76b21}.diag-result{margin-top:16px;padding:20px;border-radius:17px;background:#fff3df;border:1px solid #f2c994;line-height:1.75}.diag-result h3{margin-top:0;color:var(--brown)}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:800px;margin:auto}.level{padding:28px 18px;border:1px solid var(--line);border-radius:18px;background:#fff;text-align:center}.level span{font-size:42px}.level b{display:block;font-size:23px;margin-top:8px}.quiz{max-width:850px;margin:auto}.qmeta{display:flex;justify-content:space-between;margin-bottom:12px}.pill{padding:6px 11px;border-radius:999px;background:#fff0dc;color:#a34e18;font-weight:900}.question{padding:22px;border-radius:16px;background:#fff8ed;font-size:21px;font-weight:900;line-height:1.55}.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.choice{min-height:76px;padding:15px;border:1px solid var(--line);border-radius:14px;background:#fff;text-align:left;font-weight:800;color:var(--text)}.choice.correct{background:#e9f7ef;border-color:#63ac85}.choice.wrong{background:#fff0ef;border-color:#d87972}.explain{margin-top:14px;padding:16px;border-radius:14px;background:#f7f3ef;line-height:1.65}.next{width:100%;margin-top:14px;padding:15px;border:0;border-radius:12px;background:var(--orange);color:#fff;font-weight:900}
+.sales-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:16px}.customer,.salesq{border:1px solid var(--line);border-radius:18px;padding:20px}.avatar{text-align:center;font-size:78px;background:#fff8ed;border-radius:15px;padding:18px}.facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.facts div{padding:10px;background:#f8f4f0;border-radius:10px;font-size:13px}.speech{margin-top:12px;padding:14px;border-radius:12px;background:#fff3df;font-weight:800;line-height:1.6}.history-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{padding:20px;border-radius:16px;background:#fff8ed;text-align:center}.stat strong{display:block;color:var(--orange);font-size:30px}.namebox{display:grid;grid-template-columns:1fr auto;gap:9px;max-width:600px;margin:auto}.namebox input{padding:14px;border:1px solid var(--line);border-radius:12px}.namebox button{border:0;border-radius:12px;padding:0 20px;background:var(--brown);color:#fff;font-weight:900}.note{margin-top:18px;padding:15px;border-radius:14px;background:#fff8e8;line-height:1.65}
+footer{padding:18px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:760px){.app{padding:0}.shell{border-radius:0;min-height:100vh}.hero{grid-template-columns:1fr}.rice-visual{font-size:85px}.grid{grid-template-columns:1fr 1fr}.maker-grid,.diag-options,.choices,.sales-layout{grid-template-columns:1fr}.levels{grid-template-columns:1fr}.history-grid{grid-template-columns:1fr 1fr}.content{padding:16px}.brand{font-size:19px}.main-action b{font-size:21px}}
+</style>
+</head>
+<body><div class="app"><div class="shell">
+<header id="homeHeader"><button class="iconbtn" onclick="showPage('settings')">☰</button><div class="brand">🍚 炊飯器販買マスター <small>Risa Edition</small></div><button class="iconbtn" onclick="showPage('history')">◎</button></header>
+<main>
+<section id="home" class="page active"><div class="content">
+<div class="hero"><div><h1><span id="welcome">リサさん</span>の学習状況</h1><p>メーカーごとの炊き上がり・内釜・加熱方式・保温・お手入れを、お客様の好みに合わせて提案できるように学びます。</p><div class="status"><strong id="levelText">Lv.1</strong> 新人スタッフ<div class="bar"><span id="expBar"></span></div><span>累計 <b id="expText">0 EXP</b></span></div><div class="tip">💡 最初の質問は「もちもち派ですか？ 粒立ち派ですか？」</div></div><div class="rice-visual">🍚</div></div>
+<button class="main-action" onclick="startSales()"><span class="emoji">🛒</span><span><b>販買モード</b><small>お客様の好みからメーカー候補を提案</small></span><span>›</span></button>
+<div class="grid">
+<button class="cardbtn" onclick="showPage('makers')"><span class="emoji">🏭</span><b>メーカー攻略</b><small>象印・タイガー・日立・東芝・三菱を比較</small></button>
+<button class="cardbtn" onclick="showPage('diagnosis')"><span class="emoji">🎯</span><b>かんたん診断</b><small>食感や使い方から候補を絞る</small></button>
+<button class="cardbtn" onclick="showPage('levels')"><span class="emoji">📘</span><b>練習問題</b><small>初級・中級・上級で学習</small></button>
+<button class="cardbtn" onclick="showPage('history')"><span class="emoji">📊</span><b>学習記録</b><small>正解率と回答数を確認</small></button>
+<button class="cardbtn" onclick="showPage('comparison')"><span class="emoji">⚖️</span><b>一目比較</b><small>接客中にすぐ確認できる一覧</small></button>
+<button class="cardbtn" onclick="showPage('settings')"><span class="emoji">⚙️</span><b>設定</b><small>利用者名と学習記録の管理</small></button>
+</div></div></section>
+
+<section id="makers" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>メーカー攻略</h2><span></span></div><div class="content"><div class="sectionlead">炊き上がりは機種・コース・米・水加減でも変わります。ここではメーカー選びの入口になる代表的な傾向を整理しています。</div><div id="makerGrid" class="maker-grid"></div></div></section>
+<section id="comparison" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>一目比較</h2><span></span></div><div class="content"><div class="maker-grid" id="compareGrid"></div><div class="note">※「このメーカーなら必ずこの食感」と断定せず、候補を絞った後に実機の炊き分け・保温時間・お手入れ・内釜重量を確認します。</div></div></section>
+<section id="diagnosis" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>かんたん診断</h2><span></span></div><div class="content"><div class="sectionlead">一番重視する項目を選んでください。</div><div class="diag-options" id="diagOptions"></div><div id="diagResult" class="diag-result hidden"></div></div></section>
+<section id="levels" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>練習問題</h2><span></span></div><div class="content"><div class="levels"><button class="level" onclick="startQuiz('初級')"><span>🌱</span><b>初級</b><small>メーカーの基本</small></button><button class="level" onclick="startQuiz('中級')"><span>🌾</span><b>中級</b><small>接客と比較</small></button><button class="level" onclick="startQuiz('上級')"><span>🏆</span><b>上級</b><small>複合条件の提案</small></button></div></div></section>
+<section id="quiz" class="page"><div class="subhead"><button class="back" onclick="showPage('levels')">‹ 終了</button><h2>練習問題</h2><span></span></div><div class="content quiz"><div class="qmeta"><span class="pill" id="qLevel"></span><span id="qCount"></span></div><div class="question" id="question"></div><div class="choices" id="choices"></div><div id="explain" class="explain hidden"></div><button id="nextBtn" class="next hidden" onclick="nextQuestion()">次の問題へ</button></div></section>
+<section id="sales" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 終了</button><h2>販買モード</h2><span></span></div><div class="content"><div class="sales-layout"><div class="customer"><div class="avatar">👩</div><div class="facts"><div>家族：3人</div><div>炊飯：毎日</div><div>容量：5.5合希望</div><div>予算：相談</div></div><div class="speech" id="salesSpeech"></div></div><div class="salesq"><h3 id="salesQuestion"></h3><div class="choices" id="salesChoices"></div><div id="salesExplain" class="explain hidden"></div><button id="salesNext" class="next hidden" onclick="nextSales()">次のお客様へ</button></div></div></div></section>
+<section id="history" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>学習記録</h2><span></span></div><div class="content"><div class="history-grid"><div class="stat"><strong id="hAnswered">0</strong>回答数</div><div class="stat"><strong id="hCorrect">0</strong>正解数</div><div class="stat"><strong id="hRate">0%</strong>正解率</div></div><div class="note">学習記録は、この端末のブラウザ内に保存されます。</div></div></section>
+<section id="settings" class="page"><div class="subhead"><button class="back" onclick="showPage('home')">‹ 戻る</button><h2>設定</h2><span></span></div><div class="content"><div class="namebox"><input id="nameInput" placeholder="利用者名"><button onclick="saveName()">保存</button></div><div class="note">エアコン販買マスターとは完全に別のアプリです。エアコン側のデータやファイルには影響しません。</div><button class="next" style="background:#8d3f18;margin-top:20px" onclick="resetData()">学習記録をリセット</button></div></section>
+</main><footer>炊飯器販買マスター Risa Edition｜初版 1.0.0</footer>
+</div></div>
+<script>
+const makers=[
+{name:'象印',tag:'もちもち・甘み',points:['好みに合わせた炊き分けが得意','粘りや甘みを重視する方の候補','保温や操作性も機種別に確認'],talk:'「もちもち感と甘みを重視するなら、象印から比べてみましょう」'},
+{name:'タイガー',tag:'土鍋らしいふっくら感',points:['上位機は土鍋系の炊き上がりが特徴','ふっくら感・弾力・香ばしさを提案しやすい','内釜の重さや扱いも確認'],talk:'「土鍋ご飯のような、ふっくら感や香ばしさがお好みならタイガーです」'},
+{name:'日立',tag:'粒の外しっかり・中やわらか',points:['粒感と中のやわらかさの両立を狙う','蒸気を抑える機種が選択肢になる','設置場所や保温の使い方も確認'],talk:'「蒸気が気になる方や、粒感とやわらかさの両方を求める方に比較しやすいです」'},
+{name:'東芝',tag:'真空吸水・長時間保温',points:['吸水を助ける真空技術が代表的','ふっくら感と粒立ちのバランス型','保温時間が長い方の候補'],talk:'「浸水を忘れやすい方や、保温を長く使う方には東芝も比較しましょう」'},
+{name:'三菱',tag:'しゃっきり・粒立ち',points:['非圧力を軸に粒を立たせる考え方','かため・しゃっきり派に提案しやすい','カレー・丼・炒飯にも合わせやすい'],talk:'「もちもちしすぎず、一粒一粒を感じたい方には三菱が分かりやすいです」'}
+];
+const diagnosis=[
+{label:'もちもち・甘みを重視',title:'象印を中心に比較',text:'象印を第一候補に、タイガーも比較。炊き分け段階と普段使う銘柄を確認します。'},
+{label:'土鍋のようなふっくら感',title:'タイガーを中心に比較',text:'タイガーを第一候補に。香ばしさ、おこげの好み、内釜の扱いやすさも確認します。'},
+{label:'蒸気をできるだけ抑えたい',title:'日立を候補に',text:'蒸気対策対応機種を確認します。棚の寸法・上部空間・スライドの有無も必ず確認します。'},
+{label:'長時間保温することが多い',title:'東芝を中心に比較',text:'真空保温対応機種を候補に。実際の保温時間、冷凍利用との使い分けも聞きます。'},
+{label:'かため・しゃっきりが好き',title:'三菱を中心に比較',text:'三菱を第一候補に。カレー、丼、炒飯など普段の献立も聞くと提案しやすくなります。'},
+{label:'まだ食感が分からない',title:'試食経験から聞き取り',text:'「今の炊飯器のご飯で不満は何か」「やわらかい・べたつく・硬い」から逆算して候補を絞ります。'}
+];
+const questions=[
+{level:'初級',q:'かためで粒立ちのあるご飯を好むお客様に、最初の比較候補として適切なメーカーは？',c:['三菱','象印','タイガー','東芝'],a:0,e:'三菱は非圧力を軸に、しゃっきりした粒感を提案しやすいメーカーです。'},
+{level:'初級',q:'長時間保温を重視するお客様に、代表的な真空技術で比較しやすいメーカーは？',c:['日立','東芝','三菱','タイガー'],a:1,e:'東芝は真空吸水・真空保温が代表的な比較ポイントです。対応機種かは確認します。'},
+{level:'初級',q:'土鍋らしいふっくら感や香ばしさを求めるお客様に比較しやすいメーカーは？',c:['タイガー','日立','三菱','象印'],a:0,e:'タイガーの上位機は土鍋系の特徴を打ち出しており、ふっくら感や香ばしさを提案しやすいです。'},
+{level:'中級',q:'「もちもちが好き」と言われたときの応対として最も適切なものは？',c:['象印だけに即決する','象印を軸に、やわらかさ・甘み・保温時間も確認する','一番高い機種をすすめる','メーカーはどれも同じと説明する'],a:1,e:'食感だけで断定せず、好みの程度や保温、お手入れ、予算まで確認します。'},
+{level:'中級',q:'炊飯器選びで内釜について確認する内容として、優先度が低いものは？',c:['重さ','お手入れ方法','保証内容','本体の電源コードの色'],a:3,e:'内釜は毎日扱うため、重さ・洗いやすさ・保証が重要です。コード色は通常、優先度が低い項目です。'},
+{level:'中級',q:'蒸気を抑えたいお客様への案内として適切なものは？',c:['蒸気が出ないと断定する','対応機種を確認し、設置棚の寸法も確認する','どの炊飯器も同じと説明する','棚を閉めたまま使えると案内する'],a:1,e:'蒸気対策の程度は機種で異なります。設置条件と取扱説明書の注意事項を確認します。'},
+{level:'上級',q:'「朝炊いて夜まで保温。ご飯はやや粒立ちが好み」というお客様への第一提案として最も適切なものは？',c:['三菱だけをすすめる','東芝を軸に、三菱も食感比較し、保温時間を確認する','象印の最上位だけをすすめる','保温を使わないよう伝える'],a:1,e:'長時間保温は東芝の比較ポイント、粒立ちは三菱の比較ポイントです。複数候補を示し、優先順位を確認します。'},
+{level:'上級',q:'「土鍋の味が好きだが、内釜が重いのは困る」というお客様への応対として適切なものは？',c:['タイガー最上位に決める','土鍋系の味を確認しつつ、内釜を実際に持ってもらい他方式も比較する','重さは慣れると断定する','味の好みを無視して最軽量だけをすすめる'],a:1,e:'味と扱いやすさの両方を確認し、実機で内釜重量を体感してもらうのが適切です。'},
+{level:'上級',q:'メーカーの炊き上がり傾向を説明するときの表現として最も適切なものは？',c:['象印なら必ず一番甘い','三菱なら誰でも硬く感じる','代表的な傾向として説明し、機種・コース・水加減でも変わると補足する','メーカー差は一切ない'],a:2,e:'炊き上がりは複数条件で変わるため、傾向として伝え、断定を避けます。'}
+];
+const salesCases=[
+{speech:'「もちもちした甘いご飯が好き。家族で好みが少し違うんです」',q:'最初の提案として適切なのは？',c:['象印を軸に炊き分け機能を比較する','三菱だけをすすめる','最安機種だけをすすめる','味は同じと説明する'],a:0,e:'象印を軸に、好み調整の方法や保温時間も確認します。'},
+{speech:'「朝炊いて、夕食まで保温することが多いです」',q:'次に優先して確認することは？',c:['本体色だけ','実際の保温時間と食感の好み','テレビのメーカー','炊飯器台の材質だけ'],a:1,e:'保温時間と食感を確認し、東芝など保温を強みにする機種を比較します。'},
+{speech:'「カレーや丼が多いので、べたっとしないご飯が好き」',q:'比較候補として適切なのは？',c:['三菱','象印だけ','メーカーは問わず保温時間だけ','炊飯器では対応できない'],a:0,e:'しゃっきり・粒立ちを提案しやすい三菱が候補です。他社のかため設定も比較します。'}
+];
+let state=JSON.parse(localStorage.getItem('riceMasterState')||'{"name":"リサ","exp":0,"answered":0,"correct":0}');
+let quizSet=[],qi=0,salesIndex=0,locked=false;
+function save(){localStorage.setItem('riceMasterState',JSON.stringify(state));refresh();}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);if(id==='history')refresh();}
+function refresh(){const level=Math.floor(state.exp/100)+1;document.getElementById('welcome').textContent=(state.name||'リサ')+'さん';document.getElementById('levelText').textContent='Lv.'+level;document.getElementById('expText').textContent=state.exp+' EXP';document.getElementById('expBar').style.width=(state.exp%100)+'%';document.getElementById('hAnswered').textContent=state.answered;document.getElementById('hCorrect').textContent=state.correct;document.getElementById('hRate').textContent=state.answered?Math.round(state.correct/state.answered*100)+'%':'0%';document.getElementById('nameInput').value=state.name||'';}
+function renderMakers(){makerGrid.innerHTML=makers.map(m=>`<article class="maker"><h3>${m.name}</h3><span class="tag">${m.tag}</span><ul>${m.points.map(x=>`<li>${x}</li>`).join('')}</ul><div class="talk">${m.talk}</div></article>`).join('');compareGrid.innerHTML=makers.map(m=>`<article class="maker"><h3>${m.name}</h3><span class="tag">${m.tag}</span><p>${m.points[0]}</p></article>`).join('');diagOptions.innerHTML=diagnosis.map((d,i)=>`<button onclick="runDiag(${i},this)">${d.label}</button>`).join('');}
+function runDiag(i,btn){document.querySelectorAll('#diagOptions button').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');diagResult.classList.remove('hidden');diagResult.innerHTML=`<h3>${diagnosis[i].title}</h3>${diagnosis[i].text}`;}
+function startQuiz(level){quizSet=questions.filter(x=>x.level===level).sort(()=>Math.random()-.5);qi=0;showPage('quiz');renderQuestion();}
+function renderQuestion(){locked=false;const x=quizSet[qi];qLevel.textContent=x.level;qCount.textContent=(qi+1)+' / '+quizSet.length;question.textContent=x.q;explain.classList.add('hidden');nextBtn.classList.add('hidden');choices.innerHTML=x.c.map((v,i)=>`<button class="choice" onclick="answerQuiz(${i},this)">${i+1}. ${v}</button>`).join('');}
+function answerQuiz(i,btn){if(locked)return;locked=true;const x=quizSet[qi];[...choices.children].forEach((b,n)=>{if(n===x.a)b.classList.add('correct')});if(i!==x.a)btn.classList.add('wrong');state.answered++;if(i===x.a){state.correct++;state.exp+=10}else state.exp+=2;save();explain.classList.remove('hidden');explain.innerHTML=`<b>${i===x.a?'⭕ 正解':'❌ 不正解'}</b><br>${x.e}`;nextBtn.classList.remove('hidden');nextBtn.textContent=qi===quizSet.length-1?'結果を保存して終了':'次の問題へ';}
+function nextQuestion(){qi++;if(qi>=quizSet.length){showPage('history')}else renderQuestion();}
+function startSales(){salesIndex=0;showPage('sales');renderSales();}
+function renderSales(){locked=false;const x=salesCases[salesIndex%salesCases.length];salesSpeech.textContent=x.speech;salesQuestion.textContent=x.q;salesExplain.classList.add('hidden');salesNext.classList.add('hidden');salesChoices.innerHTML=x.c.map((v,i)=>`<button class="choice" onclick="answerSales(${i},this)">${i+1}. ${v}</button>`).join('');}
+function answerSales(i,btn){if(locked)return;locked=true;const x=salesCases[salesIndex%salesCases.length];[...salesChoices.children].forEach((b,n)=>{if(n===x.a)b.classList.add('correct')});if(i!==x.a)btn.classList.add('wrong');state.answered++;if(i===x.a){state.correct++;state.exp+=15}else state.exp+=3;save();salesExplain.classList.remove('hidden');salesExplain.innerHTML=`<b>${i===x.a?'⭕ 提案成功':'❌ もう一度整理'}</b><br>${x.e}`;salesNext.classList.remove('hidden');}
+function nextSales(){salesIndex++;if(salesIndex>=salesCases.length){showPage('history')}else renderSales();}
+function saveName(){state.name=nameInput.value.trim()||'リサ';save();showPage('home');}
+function resetData(){if(confirm('学習記録をリセットしますか？')){state.exp=0;state.answered=0;state.correct=0;save();}}
+renderMakers();refresh();
+</script></body></html>
